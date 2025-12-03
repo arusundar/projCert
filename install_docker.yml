@@ -1,0 +1,22 @@
+
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install Docker
+      yum:
+        name: docker
+        state: present
+
+    - name: Enable and start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Add root to docker group
+      user:
+        name: root
+        groups: docker
+        append: yes
+
