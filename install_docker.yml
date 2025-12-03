@@ -1,6 +1,6 @@
 
 ---
-- hosts: 13.222.111.250 ansible_user=root
+- hosts: all
   become: yes
   tasks:
     - name: Install Docker
